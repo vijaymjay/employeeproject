@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+}
+
+.mat-row>.mat-column-_id {
+  cursor: pointer;
+    color: blue;
+}
+
+.example-button-row button {
+  float: right;
+    margin-top: 20px;
+}
+
+.example-button-row h2 {
+  float: left;
+}

@@ -1,0 +1,41 @@
+<ng-container>
+<mat-toolbar class="digital-header" >
+    
+    <span class="logo">      
+      Employee Management
+     
+    </span>
+
+    <button mat-button (click)="toggleSidenav()"> 
+        <mat-icon>menu</mat-icon>
+   </button>  
+   
+
+  </mat-toolbar>
+<mat-sidenav-container [class.digital-container]="true" >
+  <mat-sidenav #leftsidenav mode="side" opened class="leftsidenav" id="matsidenav">
+  
+  <mat-nav-list>
+    
+    <a  class="rightmenu"  routerLink="/employee" routerLinkActive="selected">
+      <span class="nav-caption">Employee list</span>
+    </a>
+
+
+	</mat-nav-list>
+
+</mat-sidenav>
+  <mat-sidenav-content id="matsidecontent">
+    
+    <main>
+      <div *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+
+
+    <router-outlet *ngIf="!loading"></router-outlet>
+    </main>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>
+</ng-container>

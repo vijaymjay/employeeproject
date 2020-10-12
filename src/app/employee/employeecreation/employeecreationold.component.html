@@ -1,0 +1,131 @@
+<h2>{{ employeeheading }}</h2>
+<mat-card>
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmitemployee()" class="employeeForm">
+	
+    
+ <mat-form-field class="employee-full-width">  
+   <mat-label>Employee Name</mat-label>
+      <input matInput  formControlName="employeeName" >
+      <mat-error *ngIf="!employeeForm.hasError('required')">
+        required field
+      </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="employee-full-width">  
+    <mat-label>employee ID</mat-label>
+    <input matInput  formControlName="employeeid" >
+    <mat-error *ngIf="employeeForm.get('employeeid').errors?.required">
+      required field
+    </mat-error>
+    
+    <mat-error *ngIf="employeeForm.get('employeeid').errors?.maxlength">
+      Enter number less than 20 digits
+    </mat-error>
+    </mat-form-field>
+  
+ 
+  <h3>Address</h3>
+   <mat-form-field class="employee-full-width">    
+<mat-label>Street</mat-label>
+      <input matInput  formControlName="street" >
+      <mat-error *ngIf="employeeForm.get('street').errors?.required">
+        required field
+      </mat-error>
+	</mat-form-field>
+  <mat-form-field class="employee-full-width">  
+  <mat-label>City</mat-label>
+  <input matInput  formControlName="city" >
+  <mat-error *ngIf="employeeForm.get('street').errors?.required">
+    required field
+  </mat-error>
+</mat-form-field>
+<mat-form-field class="employee-full-width">  
+<mat-label>State</mat-label>
+<input matInput  formControlName="state" >
+<mat-error *ngIf="employeeForm.get('street').errors?.required">
+  required field
+</mat-error>
+</mat-form-field>
+<mat-form-field class="employee-full-width">  
+<mat-label>Zip</mat-label>
+<input matInput  formControlName="zip" >
+<mat-error *ngIf="zip?.touched && zip.errors?.required">
+  required field
+</mat-error>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Role</mat-label>
+  <mat-select (change)="changeRole($event)" formControlName="role">
+    <mat-option value="">Choose your role</mat-option>
+    <mat-option *ngFor="let setrole of role" value="{{setrole}}">{{setrole}}</mat-option>
+  </mat-select>
+  <mat-error *ngIf="isSubmitted && employeeForm.get('role').errors?.required">
+    required field
+  </mat-error>
+</mat-form-field>
+<br>
+<mat-form-field appearance="fill">
+  <mat-label>Department</mat-label>
+  <mat-select (change)="changeDepartment($event)" formControlName="department">
+    <mat-option value="">Choose your department</mat-option>
+    <mat-option *ngFor="let depart of department" value="{{depart}}">{{depart}}</mat-option>
+  </mat-select>
+  <mat-error *ngIf="isSubmitted && employeeForm.get('department').errors?.required">
+    required field
+  </mat-error>
+</mat-form-field>
+<br>
+<mat-form-field appearance="fill">
+  <mat-label>SkillSets</mat-label>
+  <mat-select  (change)="changeSkill($event)" formControlName="skillset">
+    <mat-option value="">Choose your skillset</mat-option>
+    <mat-option *ngFor="let skill of skillset" value="{{skill}}">{{skill}}</mat-option>
+  </mat-select>
+  <mat-error *ngIf="isSubmitted && employeeForm.get('skillset').errors?.required">
+    required field
+  </mat-error>
+</mat-form-field>
+
+
+  <mat-form-field class="employee-full-width" appearance="fill">  
+    <mat-label>Date of Birth</mat-label>
+    <input matInput [matDatepicker]="dateofbirth" autocomplete="off" formControlName="dateofbirth">
+  <mat-datepicker-toggle matSuffix [for]="dateofbirth">
+    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+  </mat-datepicker-toggle>
+  <mat-datepicker #dateofbirth></mat-datepicker>
+
+    <mat-error *ngIf="isSubmitted && employeeForm.get('dateofbirth').errors?.required">
+      required field
+    </mat-error>
+    </mat-form-field>
+
+    
+    <mat-form-field class="employee-full-width" appearance="fill">  
+      <mat-label>Date of Joining</mat-label>
+      <input matInput [matDatepicker]="dateofjoining" autocomplete="off" formControlName="dateofjoining">
+    <mat-datepicker-toggle matSuffix [for]="dateofjoining">
+      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #dateofjoining></mat-datepicker>
+  
+      <mat-error *ngIf="isSubmitted && employeeForm.get('dateofjoining').errors?.required">
+        required field
+      </mat-error>
+      </mat-form-field>
+  
+      
+      Status : <mat-radio-group aria-label="Select an option" formControlName="status" >
+        <mat-radio-button [value]="1">Yes</mat-radio-button>
+        <mat-radio-button [value]="2">No</mat-radio-button>
+      </mat-radio-group>
+    
+<br><br>
+<div class="button-row"> 
+  <button mat-raised-button color="primary" [disabled]="!employeeForm.valid" >{{ employeebutton }}</button>
+  <button mat-raised-button (click)="cancelemployee()">Cancel</button>
+</div>
+  
+  </form>
+</mat-card>

@@ -1,0 +1,87 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body { 
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+}
+
+body {
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+    line-height: 1.42857143;
+}
+
+.digital-container { background-color: #d2d6de; }
+
+* {box-sizing: border-box; }
+
+.redcolor {
+    color:red;
+}
+
+.greencolor {
+    color:green;
+}
+
+.lablestyle {font-weight: bold;}
+
+
+.alert-danger {
+    background-color: #f44336; /* Red */
+}
+.alert-success {
+    background-color: #36f456;  
+} 
+.alert{
+    padding: 8px;
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 7px;
+    position: relative;
+    border: 1px solid transparent;
+}
+
+.question-form .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color : green!important;
+}
+  
+  .question-form .mat-radio-button.mat-accent .mat-radio-inner-circle{
+    background-color: green !important;
+  }
+
+/* Question listing page */
+  .imagepopupcloseicon {
+    float: right;
+    top: -15px;
+    position: relative;
+    right: -19px;
+    cursor: pointer;
+}
+
+/*  Assessment summary page box */
+@media only screen and (max-width: 500px) {
+    .accountsummary {
+        width: 332px;
+    }
+} 
+
+@media only screen and (min-width: 768px) {
+    .accountsummary {
+        width: 442px;
+    }
+}
+
+th.mat-header-cell {
+    font-size: 14px;
+      font-weight: bold;
+  }
+
+  mat-label {
+    font-weight: bold;
+  }  
+
+  .bluecolor {
+      color:rgb(63, 81, 181);
+  }
